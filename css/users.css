@@ -1,0 +1,102 @@
+/* cor do fundo e fonte para todo o corpo do projeto */
+body {
+    background-color: aliceblue;
+    font-family: segoe ui light;
+    margin: 0;
+}
+/* customização do header da pagina */
+.head {
+    background-color: #5a9cdd;
+    padding: 20px;
+}
+h1 {
+    text-align: center;
+    color: whitesmoke;
+    margin: 0;
+}
+.title {
+    color: whitesmoke;
+}
+a {
+    font-style: none;
+    text-decoration: none;
+    color: whitesmoke
+}
+select {
+    width: 100px;
+}
+.limpaPesquisa {
+    border: 1px solid transparent;
+    border-radius: 4px;
+    color: whitesmoke;
+    background-color: #5bc0de;
+    border-color: #46b8da;
+    padding: 10px;
+    float: right;
+}
+.limpaPesquisa:focus {
+    color: whitesmoke;
+    background-color: #31b0d5;
+    border-color: #1b6d85;
+}
+.limpaPesquisa:hover {
+    color: whitesmoke;
+    background-color: #31b0d5;
+    border-color: #269abc;
+}
+/* customização dos cards */
+.card {
+    margin: 40px;
+    display: inline-block;
+    position: relative;
+    width: 280px;
+    height: 280px;
+}
+.front,.back {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transition: -webkit-transform 300ms;
+    transition: -webkit-transform 300ms;
+    transition: transform 300ms;
+    transition: transform 300ms, -webkit-transform 300ms;
+    -webkit-transition-timing-function: linear;
+    transition-timing-function: linear;
+    border-radius: 5px;
+}
+.front {
+    transform: rotateY(0deg);
+    padding: 30px;
+    background: white;
+    border-top: 3px solid #3c8dbc;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+.back {
+    -webkit-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+    padding: 30px;
+    background: white;
+    border-top: 3px solid #3c8dbc;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+.card:hover .front {
+    -webkit-transform: rotateY(-180deg);
+    transform: rotateY(-180deg);
+}
+.card:hover .back {
+    -webkit-transform: rotateY(0deg);
+    transform: rotateY(0deg);
+}
+.listItens {
+    list-style: none;
+    padding: 10px;
+    border-top: 1px solid #ddd;
+}
+ul {
+    padding: 0;
+}
+.dado {
+    float: right;
+}

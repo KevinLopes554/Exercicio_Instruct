@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html ng-app="users">
+<head>
+    <meta charset="utf-8">
+    <script src="js/angular.min.js"></script>
+    <script src="js/app/users.js"></script>
+    <link rel="stylesheet" type="text/css " href="css/users.css">
+    <title>Pesquisa de usuário</title>
+</head>
+<body ng-controller="usersCtrl">
+    <header>
+            <!-- criado um select que manda as informações de hosts para o ng-model -->
+        <div class="head">
+            <h1>Pesquisa de usuários</h1>
+            <span class="title">Selecione qual host de e-mail deseja filtrar</span>
+            <form name="hosts">
+                <select ng-model="hostName" required>
+                    <option value="biz">biz</option>
+                    <option value="tv">tv</option>
+                    <option value="net">net</option>
+                    <option value="org">org</option>
+                    <option value="ca">ca</option>
+                    <option value="info">info</option>
+                    <option value="me">me</option>
+                    <option value="io">io</option>
+                </select>
+                <button class="limpaPesquisa"><a href="index.html">Limpar Pesquisa</a></button>
+            </form>
+        </div>
+    </header>
+    <section>
+                    <!-- utilizado ng-repeat para mostrar os dados e o ng-if para limpar o DOM somente com os dados necessários -->
+        <div class="card" ng-repeat="x in users" ng-if="x.email.split('.').pop() == hostName || hosts.$pristine">
+                    <!-- dados da parte frontal do card -->
+            <div class="front">
+                <ul>
+                    <li class="listItens"><b>Nome:</b>
+                        <span class="dado">{{x.name}}</span>
+                    </li>
+                    <li class="listItens"><b>Username:</b>
+                        <span class="dado">{{x.username}}</span>
+                    </li>
+                    <li class="listItens"><b>E-mail:</b>
+                        <span class="dado">{{x.email}}</span>
+                    </li>
+                    <li class="listItens"><b>Telefone:</b>
+                        <span class="dado">{{x.phone}}</span>
+                    </li>
+                    <li class="listItens"><b>Website:</b>
+                        <span class="dado">{{x.website}}</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="back">
+                <!-- dados da parte traseira do card -->
+                <ul>
+                    <li class="listItens"><b>Cidade:</b>
+                        <span class="dado">{{x.address.city}}</span>
+                    </li>
+                    <li class="listItens"><b>Rua:</b>
+                        <span class="dado">{{x.address.street}}</span>
+                    </li>
+                    <li class="listItens"><b>Apartamento:</b>
+                        <span class="dado">{{x.address.suite}}</span>
+                    </li>
+                    <li class="listItens"><b>CEP:</b>
+                        <span class="dado">{{x.address.zipcode}}</span>
+                    </li>
+                    <li class="listItens"><b>Latitude:</b>
+                        <span class="dado">{{x.address.geo.lat}}</span>
+                    </li>
+                    <li class="listItens"><b>Longitude:</b>
+                        <span class="dado">{{x.address.geo.lng}}</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
